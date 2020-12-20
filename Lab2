@@ -1,0 +1,271 @@
+// Copyright 2018 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'package:flutter/material.dart';
+
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: DefaultTabController(
+        length: 5,
+        child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+            onPressed: () {
+              // Respond to button press
+            },
+            child: Icon(Icons.local_phone),
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            fixedColor: Colors.red,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.local_pizza, size: 30),
+                title: new Text('Продукты'),
+
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home, size: 30),
+                title: new Text('Рестораны'),
+
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.border_color, size: 30),
+                title: new Text('Заказы'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.menu, size: 30),
+                title: new Text('Меню'),
+              ),
+            ],
+          ),
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            flexibleSpace: TabBar(
+              labelPadding: const EdgeInsets.only(top: 40.0, right: 23.0, left:20.0),
+              labelColor: Colors.red,
+              indicatorColor: Colors.red,
+              isScrollable: true,
+              unselectedLabelColor:Color(0xFF686868) ,
+              tabs: [
+                Tab(text: "Акции"),
+                Tab(text: "Пица"),
+                Tab(text: "Напитки"),
+                Tab(text: "Наборы"),
+                Tab(text: "Десерты"),
+              ],
+            ),
+          ),
+          body: Container(
+            child: Stack(
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF0F0F0),
+                    ),
+
+                    child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.only(bottom: 15.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: Offset(0, 3),
+                                    )
+                                  ]
+                              ),
+                              child: Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(25.0),
+                                        topRight: Radius.circular(25.0)),
+                                    child:  Image.network('https://media.dominos.ua/__sized__/promotions/promotions_image/2020/08/12/woweekend_news-crop-c0-5__0-5-2300x1352-70.jpg'),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text(
+                                      "Пицца дня!",
+                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                                    ),
+                                  ),
+                                  Divider(
+                                    height: 0,
+                                    thickness: 2,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+
+                                      child: Text(
+                                        "Только сегодня 75грн!",
+                                        style: TextStyle(fontSize: 15),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      color: Colors.green,
+                                      child: Text("Заказать",
+                                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19, color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.only(bottom: 15.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: Offset(0, 3),
+                                    )
+                                  ]
+                              ),
+                              child: Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(25.0),
+                                        topRight: Radius.circular(25.0)),
+                                    child:  Image.network('https://media.dominos.ua/promotions/promotions_image/2020/10/29/-30_news.jpg'),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text(
+                                      "Скидка недели!",
+                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                                    ),
+                                  ),
+                                  Divider(
+                                    height: 0,
+                                    thickness: 2,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+
+                                      child: Text(
+                                        "Лучшие пиццы по выгодным ценам",
+                                        style: TextStyle(fontSize: 15),
+
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      color: Colors.green,
+
+
+                                      child: Text("Заказать",
+                                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19, color: Colors.white),
+                                      ),
+                                    ),
+                                  )
+
+
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.only(bottom: 15.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: Offset(0, 3),
+                                    )
+                                  ]
+                              ),
+                              child: Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(25.0),
+                                        topRight: Radius.circular(25.0)),
+                                    child:  Image.network('https://media.dominos.ua/__sized__/promotions/promotions_image/2020/09/23/-20_new-crop-c0-5__0-5-2300x1352-70.jpg'),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text(
+                                      "Наше День Рожденья!",
+                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                                    ),
+                                  ),
+                                  Divider(
+                                    height: 0,
+                                    thickness: 2,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+
+                                      child: Text(
+                                        "Для вас и вашей компании",
+                                        style: TextStyle(fontSize: 15),
+
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      color: Colors.green,
+
+
+                                      child: Text("Заказать",
+                                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19, color: Colors.white),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        )
+
+                    )
+                ),
+
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
