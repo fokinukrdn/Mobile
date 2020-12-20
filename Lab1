@@ -1,0 +1,56 @@
+import 'dart:collection';
+
+class Cat {
+  String name;
+  int age;
+  int _mothersAge = 4;
+  void display() {
+    print("Name: $name Age: $age");
+    print("Private variable: $_mothersAge");
+  }
+
+}
+
+class Person {
+  String name1;
+  int age2;
+
+  void display1() {
+    print("Name: $name1 Age: $age2");
+  }
+
+  Person(String n, int a){
+    name1 = n;
+    age2 = a;
+  }
+
+}
+
+main() {
+  Cat bima = Cat();
+  Fruit apple = Fruit(type:"seedy", current_amount:1500, color:"green", );
+  Person andrey = Person("Andrey", 21);
+  bima.name = "BIMA";
+  bima.age = 3;
+  bima.display();
+  andrey.display1();
+  apple.harvest = 300;
+  print(apple.harvest);
+}
+
+class Fruit {
+  String type;
+  int was_collected;
+  int current_amount;
+  String color;
+
+  int get harvest {
+    return was_collected;
+  }
+
+  void set harvest(int was_sold){
+    was_collected = current_amount + was_sold;
+  }
+
+  Fruit({this.type, this.current_amount, this.color, });
+}
